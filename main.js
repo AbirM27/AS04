@@ -1,5 +1,6 @@
 var i = 0;
 var r = 0;
+var max = 8;
 
 var a = document.querySelectorAll(".interview-btn");
 var b = document.querySelectorAll(".rejected-btn");
@@ -11,11 +12,17 @@ for (var j = 0; j < a.length; j++) {
 
     a[j].onclick = function () {
 
-        i = i + 1;
-        x.innerText = i;
+        if (i + r < max) {
 
-        var s = this.parentElement.parentElement.querySelector(".status");
-        s.innerText = "INTERVIEW";
+            i++;
+            x.innerText = i;
+
+            var s = this.parentElement.parentElement.querySelector(".status");
+            s.innerText = "INTERVIEW";
+
+            this.disabled = true;
+
+        }
 
     }
 
@@ -25,11 +32,17 @@ for (var j = 0; j < b.length; j++) {
 
     b[j].onclick = function () {
 
-        r = r + 1;
-        y.innerText = r;
+        if (i + r < max) {
 
-        var s = this.parentElement.parentElement.querySelector(".status");
-        s.innerText = "REJECTED";
+            r++;
+            y.innerText = r;
+
+            var s = this.parentElement.parentElement.querySelector(".status");
+            s.innerText = "REJECTED";
+
+            this.disabled = true;
+
+        }
 
     }
 
